@@ -90,7 +90,7 @@ abstract
 %% You will be asked to selected these concepts during the submission process
 %% but this old "keyword" functionality is maintained in case authors want
 %% to include these concepts in their preprints.
-\keywords{methods: observational, telescopes}
+\keywords{methods: observational, telescopes, surveys}
 
 %% From the front matter, we move on to the body of the paper.
 %% Sections are demarcated by \section and \subsection, respectively.
@@ -121,10 +121,15 @@ early attempts at simulating and scheduling Rubin \citet{Delgado2014, Delgado201
 
 Sky brightness paper \citep{Yoachim2016}
 
+Run through the information the model observatory generates and passes to the scheduler.
 
+There is an additional scheduler that controls which filters are loaded at the start of each night. This is configured so that if the moon is 40\% illuminated or more the $grizy$ filters are loaded, otherwise the $ugriy$ filters are loaded.
 
 
 \section{Deep Drilling Fields}
+
+The LSST is planned to include several deep drilling fields. xxx--each DDF, maybe a cite for other studies of them. We plan to observe the Euclid Deep Field South (EDFS) as a pair of pointings. 
+
 
 
 \begin{table}
@@ -154,7 +159,7 @@ Sky brightness paper \citep{Yoachim2016}
 
 \section{Baseline Simulation}
 
-Describe the basic decision tree that get built. 
+Describe the basic decision tree that gets built. 
 
 
 XXX--lay out what at baseline simulation looks like
