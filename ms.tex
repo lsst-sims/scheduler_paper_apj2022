@@ -55,11 +55,23 @@
 %% automatically put the author and affiliation information from the manuscript
 %% and save the corresponding author the trouble of entering it by hand.
 
-%\correspondingauthor{August Muench}
-%\email{greg.schwarz@aas.org, gus.muench@aas.org}
+\correspondingauthor{Peter Yoachim}
+\email{yoachim@uw.edu}
 
 \author[0000-0003-2874-6464]{Peter Yoachim}
 \affiliation{Department of Astronomy, University of Washington, Seattle, WA, USA}
+
+\author[0000-0001-5916-0031]{R. Lynne Jones}
+\affiliation{Department of Astronomy and the DiRAC Institute, University of Washington, Seattle, WA 98195, USA}
+
+\author[0000-0002-7357-0317]{Eric H. Neilsen}
+\affiliation{Fermi National Accelerator Laboratory, P.O. Box 500, Batavia, IL 60510, USA)}
+
+\author{Tiago Ribeiro}
+\affiliation{Vera C. Rubin Observatory (United States)}
+
+\author[0000-0001-5250-2633]{\v{Z}eljko Ivezi\'{c}}
+\affiliation{Department of Astronomy and the DiRAC Institute, University of Washington, Seattle, WA 98195, USA}
 
 \author{and more}
 \affiliation{affilt}
@@ -110,16 +122,38 @@ abstract
 \section{Introduction} \label{sec:intro}
 Blah blah intro
 
-Elah's paper \citet{Naghib2019}, Daniel's paper \citep{Rothchild2019}
+Elahe's paper \citet{Naghib2019}, Daniel's paper \citep{Rothchild2019}
 
 early attempts at simulating and scheduling Rubin \citet{Delgado2014, Delgado2016SPIE}.
 
 
 \section{Model Observatory}\label{sec:model_obs}
 
+\sunbsection{Kinematic Model}
+
+Run through the kinematic model. Which motions are modeled, cable wrap tracked, etc.
+
+including scheduled and unscheduled downtime
 
 
-Sky brightness paper \citep{Yoachim2016}
+\subsection{Environmental Models}
+Seeing, weather, sky brightness
+
+
+We have three definitions of ``seeing". The full width half maximum of a star at zenith at 500 nm ($FWHM_{500}$), the geometric full width at half maximum ($FWHM_{geom}$), and the effective FWHM ($FWHM_{eff}$).
+
+\begin{equation}
+    FWHM_{geom} = 0.822 FWHM_{eff} + 0.052\arcsec
+\end{equation}
+
+Looks like we have a wavelength correction of $(\lambda_{raw}/\lambda_{filter})^{0.3}$
+
+and airmass correction of $X^{0.6}$
+
+For clouds, we assume that observations are not possible if more than 30\% of the sky is cloudy. This level is reached 28\% of the time. XXX-mention how this compares to other weather downtimes. Ugh, now I can't find that nice SOAR page that had a nice table.
+
+Sky brightness paper \citep{Yoachim2016}. 
+
 
 Run through the information the model observatory generates and passes to the scheduler.
 
@@ -145,7 +179,7 @@ The LSST is planned to include several deep drilling fields. xxx--each DDF, mayb
 
 First, we set a desired total number of DDF sequences, a minimum visit depth, and season length. We compute an expected nominal depth for each DDF in 15 minute intervals for the length of the expected survey. We define a desired cumulative number of observations, then schedule DDF sequences to match the desired cumulative distribution under the constraint that the depth be above some value. Each DDF is scheduled independently, and we take no special precautions to prevent collisions between DDF observations. 
 
-XXX--I think this is one potential sequence per night, and then we place it at the optimal time in the night?
+XXX--I think this is one potential sequence per night, and then we place it at the optimal time in the night? maybe add a plot of the desired and best fit cumulative observation count.
 
 
 
@@ -180,10 +214,12 @@ XXX--I think this is one potential sequence per night, and then we place it at t
 
 \section{Markov Decision Process}
 
+For the majority of observations we use a modified Markov Decision Process (MDP), similar to the one developed in \citet{Naghib2019}.
+
+An MDP has the advantage of being able to encapsulate common astronomical observing rules of thumb into a small number of basis functions. 
 
 
-
-
+xxx-maybe make a plot of the baseline tesselation that gets randomized. 
 
 \section{Baseline Simulation}
 
