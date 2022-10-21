@@ -140,6 +140,19 @@ including scheduled and unscheduled downtime
 Seeing, weather, sky brightness
 
 
+\begin{figure}
+    \centering
+    \epsscale{0.7}
+    \plotone{plots/hours_pernight.pdf}
+    \epsscale{1}
+    \caption{The total amount of possible time per night and the average amount of time
+after removing weather downtime. Shaded regions show scheduled downtime. Our modeled
+unscheduled downtime is not included in the plot. The year progresses from left to right in
+the plot starting on October 1st. The variable length June shutdown starts around Night
+250. This general weather and maintenance schedule is the same for all simulations.}
+    \label{fig:downtime}
+\end{figure}
+
 We have three definitions of ``seeing". The full width half maximum of a star at zenith at 500 nm ($FWHM_{500}$), the geometric full width at half maximum ($FWHM_{geom}$), and the effective FWHM ($FWHM_{eff}$).
 
 \begin{equation}
