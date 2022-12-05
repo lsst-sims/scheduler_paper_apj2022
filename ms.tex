@@ -217,7 +217,8 @@ XXX--I think this is one potential sequence per night, and then we place it at t
 
 \begin{figure}
     \epsscale{0.5}
-    \plotone{plots/XMM_LSS10years.pdf}\\
+    \plotone{plots/XMM_LSS10years.pdf}
+    \plotone{plots/XMM_LSScumulative.pdf}\\
     \plotone{plots/XMM_LSS_0.1.pdf}
     \plotone{plots/XMM_LSS_0.2.pdf}
     \caption{Examples of how DDF fields are pre-scheduled. The top plot shows the expected limiting depth for the XMM-LSS field (given nominal seeing conditions) over the course of the survey. The lower plots zoom in on two observing seasons, showing how observations would be scheduled using 90\% and 80\% of the potential season length respectively, with both using the constraint that scheduled observations reach depths deeper than 23.5 mag in $g$.}
@@ -242,6 +243,8 @@ Describe the basic decision tree that gets built.
 XXX--lay out what at baseline simulation looks like
 
 
+\citet{Awan2016} for discussion of dithering strategies. 
+
 \software{Astropy \citep{astropy2013, astropy2018}, 
           Healpy and HEALpix\footnote{\url{http://healpix.sourceforge.net}} \citep{healpix2005, Zonca2019},
           Numpy \citep{harris2020array},
@@ -254,7 +257,9 @@ XXX--lay out what at baseline simulation looks like
 \bibliography{bibfile}{}
 \bibliographystyle{aasjournal}
 
-
+\begin{acknowledgments}
+This work was facilitated through the use of advanced computational, storage, and networking infrastructure provided by the Hyak supercomputer system at the University of Washington
+\end{acknowledgments}
 
 \end{document}
 
