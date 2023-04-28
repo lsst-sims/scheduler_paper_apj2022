@@ -129,7 +129,7 @@ early attempts at simulating and scheduling Rubin \citet{Delgado2014, Delgado201
 
 \section{Model Observatory}\label{sec:model_obs}
 
-\sunbsection{Kinematic Model}
+\subsection{Kinematic Model}
 
 Run through the kinematic model. Which motions are modeled, cable wrap tracked, etc.
 
@@ -138,6 +138,16 @@ including scheduled and unscheduled downtime
 
 \subsection{Environmental Models}
 Seeing, weather, sky brightness
+
+\begin{figure}
+    \centering
+    \epsscale{0.7}
+    \plotone{plots/seeing_over_time.pdf} \\
+    \plottwo{plots/cloudy_over_time.pdf}{plots/cloud_levels.pdf}
+    \epsscale{1}
+    \caption{Seeing and cloud levels.}
+    \label{fig:seeing_clouds}
+\end{figure}
 
 
 \begin{figure}
@@ -228,6 +238,8 @@ XXX--I think this is one potential sequence per night, and then we place it at t
 
 \section{Markov Decision Process}
 
+The default tesselation of the sky we employ is a (possibly) optimal solution to the covering problem based on the rotations in the icosahedral group of order 60 and determinant 1 \citep{Hardin94}.
+
 For the majority of observations we use a modified Markov Decision Process (MDP), similar to the one developed in \citet{Naghib2019}.
 
 An MDP has the advantage of being able to encapsulate common astronomical observing rules of thumb into a small number of basis functions. 
@@ -252,7 +264,8 @@ XXX--lay out what at baseline simulation looks like
           Scipy \citep{2020SciPy-NMeth},
           Pandas \citep{reback2022},
           Scikit-learn \citep{scikit-learn},
-          OpenOrb \citep{Granvik2009}}
+          OpenOrb \citep{Granvik2009},
+          GNU Parallel \citep{Tange2023}}
           
 \bibliography{bibfile}{}
 \bibliographystyle{aasjournal}
