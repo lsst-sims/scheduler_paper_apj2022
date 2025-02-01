@@ -155,11 +155,18 @@ The kinematic model computes the time in takes for various motions including
     \item{open and closed optics loop delays}
 \end{itemize}
 
-Times for altitude, azimuth, and rotational motions are calculated using a constant acceleration value and maximum velocity (configurable for each component). A finite value for the jerk can be included based on \citet{Mu2009}, but is turned off by default as it has minimal impact on the total motion times.--xxx is this actually true? Looks like we do have jerk on for telescope motions.
+The times for the altitude, azimuth and rotational motions are calculated using a constant acceleration value and maximum velocity (configurable for each component). A finite value for the jerk can be included based on \citet{Mu2009}, but is turned off by default as it has minimal impact on the total motion times.--xxx is this actually true? Looks like we do have jerk on for telescope motions.
 
-xxx--Cable wrap is tracked for the telescope (which can go xxx) and the camera which has limits of xxx. 
+Figure~\ref{fig:motion_times} shows the motion times for different slews. For short slews of a few degrees, the telescope is usually the limiting factor. For longer slews, the dome or optics loops are the limiting factors. 
 
-xxx-figures with starting/ending values, colored by time, for each component. 
+Cable wrap is tracked for the telescope which can go -250 to 250 degrees in azimuth and the camera rotator which has limits of -90 to 90 degrees. 
+
+\begin{figure}
+    \epsscale{0.7}
+    \plotone{plots/motion_times}
+    \epsscale{1}
+    \caption{Kinematic motion times for different components.  \label{fig:motion_times}}
+\end{figure}
 
 \subsection{Downtimes}
 
@@ -324,7 +331,7 @@ Twilight survey for inner solar system objects, similar to \citet{Ye2020}.
 
 \section{Conclusions}
 
-There are concerns that LEO satellite mega-constellations could impact ground based astronomical observatories. We have not included any satellite dodging as earlier work found that even for an Gen 2 Starlink constellation with 30,000 satellites, only 0.04\% of LSST science pixels would be lost to satellite streaks \citep{Hu2022} (xxx-tech note too).
+There are concerns that LEO satellite mega-constellations could impact ground based astronomical observatories. We have not included any satellite dodging as earlier work found that even for a Gen 2 Starlink constellation with 30,000 satellites, only 0.04\% of LSST science pixels would be lost to satellite streaks \citep{Hu2022, Yoachim2025}.
 
 \software{Astropy \citep{astropy2013, astropy2018}, \\
           Astroplan \citep{astroplan18},
