@@ -135,7 +135,9 @@ early attempts at simulating and scheduling Rubin \citet{Delgado2014, Delgado201
 
 Elahe's paper \citet{Naghib2019}, Daniel's paper \citep{Rothchild2019}
 
-Throughout this paper we adopt the LSST nomenclature of a "visit" being potentially mulitple exposures at a single location while each of those exposures is refered to as a "snap". Rubin processing typically combines snaps from a visit before running things like transient detection.
+Throughout this paper we adopt the LSST nomenclature of a "visit" being potentially multiple exposures at a single location while each of those exposures is refered to as a "snap". Rubin processing typically combines snaps from a visit before running things like transient detection.
+
+The latest simulation \citet{v4.3}.
 
 \section{Model Observatory}\label{sec:model_obs}
 
@@ -287,10 +289,9 @@ For the majority of observations we use a modified Markov Decision Process (MDP)
 
 An MDP has the advantage of being able to encapsulate common astronomical observing rules of thumb into a small number of basis functions. 
 
-xxx--discuss the general basis functions that typically are used for the MDP surveys. 
+xxx--discuss the general basis functions that typically are used for the MDP surveys. The most commonly used basis functions are, 1) slewtime, 2) the 5$\sigma$-limiting depth (which is a function of airmass, seeing, and sky brightness), and 3) the differenmt 
 
-
-Most surveys define a fixed set of fields (e.g., DES). Early attempts at scheduling LSST used fixed fields, but this leads to an issue of how to optimally dither pointings to fill chip and raft gaps, as well as distribute field overlap regions. 
+Most astronomical surveys define a fixed set of fields (e.g., DES). Early attempts at scheduling LSST used fixed fields, but this leads to an issue of how to optimally dither pointings to fill chip and raft gaps, as well as distribute field overlap regions. 
 
 Rather than use a fixed set of specific pointings, we adopt a full-sky tesselation and then randomize the orientation of that tesselation nightly as done in \citet{Rothchild2019}. So on any given night, there are XXX potential coordinates the telescope could be pointed to, but those positions will not be reused on subsequent nights.
 
@@ -403,7 +404,9 @@ Twilight survey for inner solar system objects, similar to \citet{Ye2020}.
 \caption{Distribution of twilight observations for earth interior objects. \label{fig:tiers_ddf}}
 \end{figure}
 
+\section{Survey Performance}
 
+XXX--Maybe have a section here with a few of the main MAF metrics and show how the baseline survey performs.
 
 \section{Conclusions}
 
