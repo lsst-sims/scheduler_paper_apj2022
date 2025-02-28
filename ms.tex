@@ -289,7 +289,9 @@ For the majority of observations we use a modified Markov Decision Process (MDP)
 
 An MDP has the advantage of being able to encapsulate common astronomical observing rules of thumb into a small number of basis functions. 
 
-xxx--discuss the general basis functions that typically are used for the MDP surveys. The most commonly used basis functions are, 1) slewtime, 2) the 5$\sigma$-limiting depth (which is a function of airmass, seeing, and sky brightness), and 3) the differenmt 
+xxx--discuss the general basis functions that typically are used for the MDP surveys. The most commonly used basis functions are, 1) slewtime, 2) the 5$\sigma$-limiting depth (which is a function of airmass, seeing, and sky brightness), and 3) the difference between the desired survey footprint and the footprint created by completed observations.
+
+
 
 Most astronomical surveys define a fixed set of fields (e.g., DES). Early attempts at scheduling LSST used fixed fields, but this leads to an issue of how to optimally dither pointings to fill chip and raft gaps, as well as distribute field overlap regions. 
 
@@ -305,6 +307,8 @@ Figure~\ref{fig:tesselation} illustrates our nightly dithering scheme. \citet{Aw
     \caption{Examples of how the sky tesselation is rotated on different nights. Figures show a gnomic projection of the south celectial pole for declinations below -60 degrees. In the top panels, we color HEALpixels based on which pointing they would be assigned to. Bottom panels show the overlaps between pointings. Night 1 of the survey is on the left, while night 5 is on the right. \label{fig:tesselation}}
 \end{figure}
 
+
+
 \subsection{Combined MDP and Prescheduled}
 
 We can combine the above two techniques. In order to force observations on certain time scales, we can use the MDP to observe an area of the sky, and once those observations are completed, generate new scheduled observations on the same area to be completed later. 
@@ -318,6 +322,7 @@ There are a number of potential Target of Opportunity (ToO) events that Rubin co
 
 
 \subsection{Scheduler Decision Tree}
+
 Describe the basic decision tree that gets built. Tier 1 are ToO observations. Tier 2 are Roman overlap observations. Tier 3 are Deep Drilling Field observations. Tier 4 are observations dedicated to observing time scales of several hours. Tier 5 are taking paired observations with 33 minute time gaps. Tier 6 is similar, but for 15 minute gaps. Tier 7 is earth-interior solar system objects, so sets of 4 observations taken at high airmass in twilight time 
 
 
@@ -335,7 +340,7 @@ Twilight survey for inner solar system objects, similar to \citet{Ye2020}.
 \plotone{plots/tiers/baseline_v4_0_10yrs_Nvisits_as_function_of_Alt_Az_scheduler_note_like_DD_HEAL_SkyMap.pdf}
 \plotone{plots/tiers/run_name_Hourglass_scheduler_note_like_DD_and_night_lt_730_HOUR_Hourglass.pdf}
 \epsscale{1}
-\caption{Distribution of DDF observations \label{fig:tiers_ddf}}
+\caption{Distribution of deep drilling field and Roman bulge observations. \label{fig:tiers_ddf}}
 \end{figure}
 
 
@@ -345,7 +350,7 @@ Twilight survey for inner solar system objects, similar to \citet{Ye2020}.
 \plotone{plots/tiers/baseline_v4_0_10yrs_Nvisits_as_function_of_Alt_Az_scheduler_note_like_ToO_HEAL_SkyMap.pdf}
 \plotone{plots/tiers/run_name_Hourglass_scheduler_note_like_ToO_and_night_lt_730_HOUR_Hourglass.pdf}
 \epsscale{1}
-\caption{Distribution of ToO observations \label{fig:tiers_ddf}}
+\caption{Distribution of ToO observations. \label{fig:tiers_ddf}}
 \end{figure}
 
 \begin{figure}
