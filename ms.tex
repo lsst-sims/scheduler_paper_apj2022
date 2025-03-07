@@ -151,10 +151,10 @@ The kinematic model computes the time in takes for various motions including
     \item{Altitude and azimuthal motions of the telescope}
     \item{Rotational motion of the camera}
     \item{Filter change time}
-    \item{telescope settle times}
-    \item{filter change}
-    \item{shutter motion during a visit}
-    \item{open and closed optics loop delays}
+    \item{Telescope settle times}
+    \item{Filter change}
+    \item{Shutter motion during a visit}
+    \item{Open and closed optics loop delays}
 \end{itemize}
 
 The times for the altitude, azimuth and rotational motions are calculated using a constant acceleration value and maximum velocity (configurable for each component). A finite value for the jerk can be included based on \citet{Mu2009}, but is turned off by default as it has minimal impact on the total motion times.--xxx is this actually true? Looks like we do have jerk on for telescope motions.
@@ -172,7 +172,7 @@ Cable wrap is tracked for the telescope which can go -250 to 250 degrees in azim
 
 \subsection{Downtimes}
 
-including scheduled and unscheduled downtime---
+including scheduled and unscheduled downtime---XXXScheduled downtimes are XXX, unscheduled downtimes can be XXX. 
 
 
 \subsection{Environmental Models}
@@ -291,9 +291,9 @@ An MDP has the advantage of being able to encapsulate common astronomical observ
 
 xxx--discuss the general basis functions that typically are used for the MDP surveys. The most commonly used basis functions are, 1) slewtime, 2) the 5$\sigma$-limiting depth (which is a function of airmass, seeing, and sky brightness), and 3) the difference between the desired survey footprint and the footprint created by completed observations.
 
+xxx--discussion of how we construct the desired footprint as a function of time. This might need a few figures. Maybe a set showing progression of the footprint through a few years. Then a set showing progression with rolling. Pointing out we have multiple bands so northern observatories should have access to the enhanced alert stream. And that we fiddle the rolling so that there are data releases with fairly uniform coverage. 
 
-
-Most astronomical surveys define a fixed set of fields (e.g., DES). Early attempts at scheduling LSST used fixed fields, but this leads to an issue of how to optimally dither pointings to fill chip and raft gaps, as well as distribute field overlap regions. 
+Most astronomical surveys define a fixed set of fields (e.g., DES xxx-cite). Early attempts at scheduling LSST used fixed fields, but this leads to an issue of how to optimally dither pointings to fill chip and raft gaps, as well as distribute field overlap regions. 
 
 Rather than use a fixed set of specific pointings, we adopt a full-sky tesselation and then randomize the orientation of that tesselation nightly as done in \citet{Rothchild2019}. So on any given night, there are XXX potential coordinates the telescope could be pointed to, but those positions will not be reused on subsequent nights.
 
@@ -307,7 +307,7 @@ Figure~\ref{fig:tesselation} illustrates our nightly dithering scheme. \citet{Aw
     \caption{Examples of how the sky tesselation is rotated on different nights. Figures show a gnomic projection of the south celectial pole for declinations below -60 degrees. In the top panels, we color HEALpixels based on which pointing they would be assigned to. Bottom panels show the overlaps between pointings. Night 1 of the survey is on the left, while night 5 is on the right. \label{fig:tesselation}}
 \end{figure}
 
-
+xxx--This might be a place to point out that we use truncated float comparisons throughout the code to ensure the results are repeatable cross-platform. Values are typically scaled up by $10^5$\ and then rounded to an integer before comparisons are made. By convention, basis functions and associated weights are kept around order unity.
 
 \subsection{Combined MDP and Prescheduled}
 
@@ -323,8 +323,9 @@ There are a number of potential Target of Opportunity (ToO) events that Rubin co
 
 \subsection{Scheduler Decision Tree}
 
-Describe the basic decision tree that gets built. Tier 1 are ToO observations. Tier 2 are Roman overlap observations. Tier 3 are Deep Drilling Field observations. Tier 4 are observations dedicated to observing time scales of several hours. Tier 5 are taking paired observations with 33 minute time gaps. Tier 6 is similar, but for 15 minute gaps. Tier 7 is earth-interior solar system objects, so sets of 4 observations taken at high airmass in twilight time 
+Describe the basic decision tree that gets built. Tier 1 are ToO observations. Tier 2 are Roman overlap observations. Tier 3 are Deep Drilling Field observations. Tier 4 are observations dedicated to observing time scales of several hours. Tier 5 are taking paired observations with 33 minute time gaps. Tier 6 is similar, but for 15 minute gaps. Tier 7 is earth-interior solar system objects, so sets of 4 observations taken at high airmass in twilight time.
 
+XXX--maybe a table of the different survey tiers, listing total exposure time and filters used for each.
 
 
 
