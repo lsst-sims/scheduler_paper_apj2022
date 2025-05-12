@@ -171,9 +171,14 @@ Cable wrap is tracked for the telescope which can go -250 to 250 degrees in azim
 \end{figure}
 
 \subsection{Down times}
+
 The model observatory includes both scheduled downtime and generates random unscheduled downtime events.  
 including scheduled and unscheduled downtime. 
-Scheduled downtime events are 7 day stretches for general maintenance and 14 day stretches for mirror recoatings. The total scheduled downtime in the 10-year survey is 140 nights. Unscheduled downtime events are simulated as 1, 3, 7, or 14 days long. We add additional minor downtime events to year 1. Our default scheduled and unscheduled downtime realization is plotted in Figure~\ref{fig:downtimes}
+Scheduled downtime events are 7 day stretches for general maintenance and 14 day stretches for mirror recoatings. The total scheduled downtime in the 10-year survey is 140 nights. 
+
+Unscheduled downtime events are simulated as 1, 3, 7, or 14 days long. For any given night, there is a 1.37\% chance of a minor event (1 night lost), 0.548\% change of an intermediate event (3 nights down), 0.137\% chance of a major event (7 nights down), and 0.0274\% chance of a catastrophic event (14 nights down). We add additional minor downtime events to year 1, with the probability of a minor event happening within a night starting at 50\% and dropping to $\sim$5\%. 
+
+Our default scheduled and unscheduled downtime realization is plotted in Figure~\ref{fig:downtimes}.
 
 \begin{figure}
     \centering
@@ -181,7 +186,6 @@ Scheduled downtime events are 7 day stretches for general maintenance and 14 day
     \plotone{plots/downtimes.pdf}
     \caption{The scheduled and unscheduled downtimes included in default survey simulations. \label{fig:downtimes}}
     \epsscale{1}
-    
 \end{figure}
 
 \subsection{Environmental Models}
@@ -196,7 +200,7 @@ Seeing, weather, sky brightness
     \plotone{plots/seeing_over_time.pdf} \\
     \plottwo{plots/cloudy_over_time.pdf}{plots/cloud_levels.pdf}
     \epsscale{1}
-    \caption{Seeing and cloud levels.}
+    \caption{Seeing and cloud coverage distributions used in survey simulations. }
     \label{fig:seeing_clouds}
 \end{figure}
 
